@@ -1,0 +1,18 @@
+# docker-compose.yml
+# Define your services here (backend, frontend, db, redis, etc.)
+version: '3.8'
+services:
+  # Example placeholders:
+  backend:
+    build: ./backend
+    ports:
+      - '8000:8000'
+  frontend:
+    build: ./frontend
+    ports:
+      - '3000:80'
+  db:
+    image: postgres:15-alpine
+  redis:
+    image: redis:6-alpine
+
