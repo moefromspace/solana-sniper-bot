@@ -1,18 +1,50 @@
-# docker-compose.yml
-# Define your services here (backend, frontend, db, redis, etc.)
-version: '3.8'
 services:
-  # Example placeholders:
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
-      - '8000:8000'
-  frontend:
-    build: ./frontend
-    ports:
-      - '3000:80'
-  db:
-    image: postgres:15-alpine
-  redis:
-    image: redis:6-alpine
+      - "8000:8000"
+    env_file:
+      - .env.example
+    depends_on:
+      - db
+      - redis_cache
+    environment:
+      - REDIS_HOST
+      - REDIS_PORT
+    volumes:
+      - ./backend:/app
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    env_file:
+      - .env.example
+    volumes:
+      - ./frontend/nginx_cache:/var/cache/nginx
+      - ./frontend/nginx_logs:/var/log/nginx
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env.example
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  redis_cache:
+    image: redis:7.4
+    container_name: redis_cache
+    ports:
+      - "6379:6379"
+
+volumes:
+  db_data:

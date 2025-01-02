@@ -1,0 +1,17 @@
+fastapi==0.100.0       # FastAPI framework
+uvicorn[standard]==0.23.1  # ASGI server for running FastAPI
+redis==4.5.5           # Redis client library
+httpx==0.24.1          # For making async HTTP requests
+pydantic==1.10.2       # For data validation and settings
+sqlalchemy==2.0.1      # ORM for PostgreSQL (if you're using it directly)
+asyncpg==0.29.0        # PostgreSQL driver
+python-dotenv==1.0.0   # For managing environment variables
+loguru==0.7.0          # Advanced logging
+alembic==1.11.0        # Database migrations
+websockets==11.0.3     # For WebSocket connections
+
+# Development/Testing Tools
+pytest==7.4.0          # Testing framework
+pytest-asyncio==0.21.1 # Async support for pytest
+black==23.9.1          # Code formatter
+flake8==6.1.0          # Linter

@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+*.egg
+*.egg-info
+*.log
+
+# Environment Variables
+.env
+*.env
+
+# Testing
+.coverage
+pytest_cache/
+*.pytest_cache/
+
+# Migrations
+alembic/versions/*
+
+# Cache
+*.cache
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+*.env
+docker-compose.override.yml
+*.log
+*.tmp
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Node/React (if included in backend repo)
+node_modules/
+dist/
+build/
+
+# PyInstaller
+*.spec
+build/
+dist/
