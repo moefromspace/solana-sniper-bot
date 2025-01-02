@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI # type: ignore
+from fastapi.middleware.cors import CORSMiddleware # type: ignore
 
 from src.routers import token_listener, aggregator, trade_executor, portfolio_tracker
 from src.utils.logging_setup import setup_logging

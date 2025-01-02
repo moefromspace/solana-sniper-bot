@@ -1,8 +1,8 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException # type: ignore
 from dataclasses import dataclass
 from typing import Dict, Any, Optional
 import asyncio
-import websockets
+import websockets # type: ignore
 import json
 from datetime import datetime, timezone
 from typing import Any, Dict

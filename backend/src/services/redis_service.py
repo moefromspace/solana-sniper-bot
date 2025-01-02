@@ -1,4 +1,4 @@
-import redis.asyncio as redis
+import redis.asyncio as redis # type: ignore
 import logging
 import json
 from typing import Callable, Optional
